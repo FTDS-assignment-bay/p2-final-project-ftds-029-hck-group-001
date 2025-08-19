@@ -1,0 +1,11 @@
+streamlit==1.28.2
+streamlit-option-menu
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+scikit-learn==1.5.1
+Pillow
+collections
+pathlib
