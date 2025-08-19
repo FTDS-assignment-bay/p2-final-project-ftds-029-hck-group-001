@@ -1,109 +1,162 @@
-# Milestone 3
+# 🎯 E-Quinox: Contextual Bandit Optimization for Real-Time Marketing Decisions
 
-## Repository Outline
-```
-p2-ftds029-hck-m3-IanKuzuma
-    |
-    ├── .env --- dotenv file to set up all the environment variables for the Docker stack
-    ├── description.md --- markdown file for this project's repository documentation
-    ├── P2M3_rd_ladityarsa_ilyankusuma_conceptual.txt --- text file for answering the six conceptual questions
-    ├── P2M3_rd_ladityarsa_ilyankusuma_config.yaml --- yaml file to set up a data engineering stack using Docker
-    ├── P2M3_rd_ladityarsa_ilyankusuma_ddl.txt --- text file for the postgesql query documentation
-    ├── P2M3_rd_ladityarsa_ilyankusuma_data_raw.csv --- comma seperated value file of our raw dataset
-    ├── P2M3_rd_ladityarsa_ilyankusuma_data_clean.csv --- comma seperated value file of our cleaned dataset
-    ├── P2M3_rd_ladityarsa_ilyankusuma_DAG.py --- python script for running our entire ETL data pipeline with DAG
-    ├── P2M3_rd_ladityarsa_ilyankusuma_DAG_graph.jpg --- jpeg screenshot file of the DAG's successful graph sequence
-    ├── P2M3_rd_ladityarsa_ilyankusuma_GX.ipynb --- jupyter notebook of our GX data validation project
-    ├── P2M3_rd_ladityarsa_ilyankusuma_GX_docs.jpg --- jpeg screenshot file of the GX's local Data Docs
-    ├── README.md --- markdown file for the problems and matrix of this project given by hacktiv8
-    ├── /dags --- folder for Docker to read our DAG python script off of
-    ├── /data --- folder for PostgreSQL and Docker to read and write our dataset files off of
-    ├── /gx --- auto-generated folder for saving our GX's Data Context
-    ├── /postgres_data --- auto-generated folder for our PostgreSQL's container
-    ├── /images
-        ├── introduction & objective.png --- png screenshot file of our Kibana dashboard's introduction
-        └── plot & insight 01.png --- png screenshot file of our Kibana dashboard's first plot & insight
-        └── plot & insight 02.png --- png screenshot file of our Kibana dashboard's second plot & insight
-        └── plot & insight 03.png --- png screenshot file of our Kibana dashboard's third plot & insight
-        └── plot & insight 04.png --- png screenshot file of our Kibana dashboard's fourth plot & insight
-        └── plot & insight 05.png --- png screenshot file of our Kibana dashboard's fifth plot & insight
-        └── plot & insight 06.png --- png screenshot file of our Kibana dashboard's sixth plot & insight
-        └── conclusion.png --- png screenshot file of our Kibana dashboard's conclusion
-```
-
-## Problem Background
-
-In any company, whether it's a hot tech startup or a legacy manufacturing giant, losing a good employee always stings. You're not just losing a headcount, you're losing experience, project momentum, team synergy, and probably spending a ton of time and money replacing them. And yet, most companies still only react *after* someone resigns or underperforms, instead of predicting *who* might be at risk and *why* it's happening in the first place.
-
-This project aims to change that.
-By analyzing structured HR data from a real organization, the goal is to explore what really drives attrition and performance disparities. Are certain job roles more prone to burnout? Does overtime hurt performance? Are promotions aligned with actual capability? These are the kinds of questions HR teams should be asking *before* attrition happens, not after.
-The project isn't just about churn, it's about giving businesses a data-driven way to manage, support, and retain their talents better.
-
-## Project Output
-
-The final output of this project is a complete data analysis pipeline that turns raw HR data into business-ready insights. It includes:
-
-* Exploratory Data Analysis (EDA) focused on attrition, performance ratings, promotions, and job roles.
-* A series of visualizations (pie chart, bar plots, heatmap, gauge, etc.) that explore key trends across departments, genders, job levels, and work experience.
-* A Kibana dashboard for interactive data storytelling and operational use.
-* Business insights and recommendations based on analytical patterns.
-
-The core value lies in surfacing *early indicators* of disengagement, mismatch, or structural bottlenecks in HR planning.
-
-## Data
-
-Dataset URL: [https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
-
-The dataset contains HR records for 1,470 employees, including:
-
-* Demographics: gender, education, age, marital status
-* Work-related info: job role, department, overtime, years at company, performance rating
-* Compensation: monthly income, stock options, percent salary hike
-* Target variable: **Attrition** (Yes/No)
-
-The dataset is clean, consistent, and feature-rich. It has a balanced mix of categorical and numerical data, which makes it perfect for slicing across segments like department vs performance, gender vs promotion, or job level vs attrition.
-
-## Method
-
-This is a **descriptive analytics project** to uncover patterns and trends in employee behavior, performance, and attrition. Through a combination of statistical summaries, visual breakdowns, and segmentation analysis, it extracts actionable insights from historical HR data.
-
-Here’s what’s done:
-
-* Data Cleaning: Standardized column names, parsed values, removed irrelevant fields (like employee number).
-* Feature Engineering: Derived tenure brackets, grouped job levels, and normalized rating scales.
-* Visualization Suite:
-
-  * **Pie Chart** for high-level education distributuon.
-  * **Bar Plots** for counting attrition by department and job role.
-  * **Line Chart** for showing the trend of avg. training times by years at company.
-  * **Heatmap** showing distribution of job levels across gender.
-  * **Gauge Chart** for avg. years since last promotion across the company.
-
-The visualizations were then translated into interactive components using **Kibana** on top of **ElasticSearch**, with all the pipeline managed using **Airflow** and validated using **Great Expectations**.
-
-## Stacks
-
-* **Languages**: Python, YAML
-* **Libraries**: pandas, seaborn, matplotlib, plotly, numpy
-* **Tools**: Apache Airflow, Docker Compose, PostgreSQL
-* **Visualization**: Kibana, ElasticSearch
-* **Data Validation**: Great Expectations
-* **Notebook Environment**: JupyterLab
-
-## Reference
-
-* [IBM HR Analytics Attrition Dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
-* [McKinsey: The Great Attrition](https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/great-attrition-or-great-attraction-why-people-are-leaving-jobs)
-* [Gartner Workforce Analytics](https://www.gartner.com/en/human-resources/insights/workforce-analytics)
-* [SHRM: Predictive Analytics in HR](https://www.shrm.org/hr-today/news/hr-magazine/summer2022/pages/how-predictive-analytics-can-help-hr.aspx)
-* [Airflow Documentation](https://airflow.apache.org/docs/)
-* [Kibana Documentation](https://www.elastic.co/guide/en/kibana/current/index.html)
-* [Great Expectations Documentation](https://docs.greatexpectations.io/)
+## 📌 Overview
+This repository contains the implementation and analysis of a **Contextual Bandit** model designed to optimize real-time marketing decisions for e-commerce. The project leverages reinforcement learning to balance exploration and exploitation, delivering personalized recommendations that maximize user conversion rates.
 
 ---
 
-**Extra Reference:**
-- [Basic Writing and Syntax on Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-- [readme example](https://github.com/fahmimnalfrzki/Swift-XRT-Automation)
-- [Another example](https://github.com/sanggusti/final_bangkit) (**Must read**)
-- [Additional reference](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
+## 🚀 Problem Statement
+**"How can we increase marketing conversion rates by providing real-time, context-aware recommendations while efficiently handling cold-start problems and delayed user feedback?"**
+
+### Background:
+- 62% of users expect personalized recommendations, but 78% leave due to irrelevant suggestions (*Salesforce, 2023*).
+- Cold-start problems: New products receive 5x fewer clicks in the first 48 hours (*ACM Journal, 2022*).
+- Delayed feedback: 61% of e-commerce transactions occur more than 24 hours after the click (*KDD Research, 2021*).
+
+---
+
+## 🎯 Objectives
+1. **Increase Conversion Rate**  
+   - Deliver highly relevant real-time product recommendations using CTR and Purchase Conversion Rate as KPIs.
+
+2. **Overcome Cold-Start & Exploration Challenges**  
+   - Implement a Multi-Armed Bandit (MAB) algorithm to balance exploration of new products and exploitation of popular ones.
+
+3. **Reduce Churn & Improve Retention**  
+   - Use delayed feedback to personalize recommendations per user session.
+
+---
+
+## 📂 Dataset
+**Source:** [Retailrocket Recommender System Dataset](https://www.kaggle.com/retailrocket/ecommerce-dataset)  
+**Highlights:**
+- 20.7 million real user events
+- 1.4 million unique users
+- Dynamic item properties (price/availability)
+- Hierarchical category structure
+
+---
+
+## 🔍 Key Insights from EDA
+
+### 📊 Event Type Distribution
+- **Views:** 2.66M events
+- **Add to Cart:** 69K events (2.6% of views)
+- **Transactions:** 22K events (0.8% of views)
+
+### ⏰ Peak Activity Hours
+- Highest activity: 5 PM – 10 PM and 12 AM – 4 AM
+- Lowest activity: 7 AM – 11 AM
+
+### 📅 Weekly Activity
+- Stable activity on weekdays (Mon–Fri)
+- Significant drop on Saturdays, slight recovery on Sundays
+
+### 🧭 Conversion Funnel
+- Major drop from View → Add to Cart
+- Only 32% of cart additions lead to purchase
+
+---
+
+## 🛠️ Methodology
+
+### 🔧 Tech Stack
+| Category           | Tools/Libraries               |
+|--------------------|-------------------------------|
+| Programming        | Python 3.9+                   |
+| Data Processing    | pandas, numpy                 |
+| Machine Learning   | scikit-learn, PyMC3 (optional)|
+| Workflow           | Apache Airflow                |
+| Database           | PostgreSQL                    |
+| Visualization      | matplotlib, Streamlit         |
+
+### 📦 ETL Pipeline
+```
+   start >> new_data >> loaded_data >>updated_data>>timestamp_change1>>features1 
+
+    new_data >> equinox_bandit>> timestamp_change2>>features2>>update_bandit>>saved_bandit
+
+```
+
+# 🤖 Model: Logistic Regression Bandit
+
+## ⚙️ Mechanism:
+- Separate logistic regression model per action
+- Input: Contextual features (user + event data)
+- Output: Conversion probability (0–1)
+- Action selection via **Thompson Sampling**
+- Binary reward update (1 = conversion, 0 = no conversion)
+
+## 📈 Prediction Formula:
+<div align="center">
+
+$P(Y=1|X) = \frac{1}{1 + e^{-(b_0 + b_1X)}}$
+
+</div>
+
+---
+
+# 📊 Model Evaluation
+
+## 📈 Action Selection Over Time
+- **Actions tested:** `email_no_discount`, `email_10%_discount`, `banner_limited_time_offer`, `popup_abandoned_cart_reminder`
+- **Model successfully converged to optimal action:** `email_no_discount`
+
+## 🎯 Results:
+- **Optimal Baseline:** `email_no_discount`
+- **Conversion Rate:** 6.3%
+- **Bandit Performance:** 6.3%
+- **Regret:** 0.000
+
+---
+
+# 🧠 Prediction Example:
+- **Recommended Action:** `email_no_discount`
+- **Predicted Conversion Lift:** **97.8%**
+- **Action Probabilities:**
+  - `email_no_discount`: 0.9981
+  - `email_10%_discount`: 0.0998
+  - `banner_limited_time_offer`: 0.2144
+  - `popup_abandoned_cart_reminder`: 0.0817
+
+---
+
+# 🧩 Challenges
+- JSON serialization conflicts in Airflow DAGs
+- Docker-PostgreSQL connectivity issues
+- Complexity of Reinforcement Learning and marketing domain knowledge
+- Defining effective marketing actions for the bandit model
+
+---
+
+# 🚀 Improvements & Future Work
+
+## 🔧 Infrastructure:
+- Improve Docker-PostgreSQL network configuration
+- Use Parquet or custom serializers to avoid JSON issues in Airflow
+
+## 🧠 Model Enhancements:
+- Explore advanced RL methods (Random Forest, Bayesian Regression)
+- Implement more complex marketing actions tailored to business context
+- Integrate deep learning for better feature representation
+
+---
+
+# 👥 Team E-Quinox
+| Role               | Name                 | Contact               |
+|--------------------|----------------------|-----------------------|
+| Data Engineer      | Nugroho Damar W.     | noreply@hacktiv8.com  |
+| Data Scientist     | Rd. Ladityarsa I.    | noreply@hacktiv8.com  |
+| Data Analyst       | Khalif Prabowo S.    | noreply@hacktiv8.com  |
+
+---
+
+# 🔗 Links
+- **Deployment:** [Streamlit App](https://finalproject-equinox.streamlit.app)
+- **Slide Deck:** [PPT](https://docs.google.com/presentation/d/1nzJ24EUKhpTNzzqIVvu6u9J3QWJKSTz5wdN4t7OtcZs/edit?slide=id.p5#slide=id.p5)
+
+---
+
+# 📚 References
+- Li, L., Chu, W., Langford, J., & Schapire, R. E. (2010). *A Contextual-Bandit Approach to Personalized News Article Recommendation*
+- Retailrocket Dataset: [Kaggle](https://www.kaggle.com/retailrocket/ecommerce-dataset)
