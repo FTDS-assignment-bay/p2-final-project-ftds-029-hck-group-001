@@ -1,5 +1,9 @@
 # 🎯 E-Quinox: Contextual Bandit Optimization for Real-Time Marketing Decisions
 
+<div align="center">
+  <img src="./images/logo%20(2).png" alt="Team logo" width="500">
+</div>
+
 ## 📌 Overview
 This repository contains the implementation and analysis of a **Contextual Bandit** model designed to optimize real-time marketing decisions for e-commerce. The project leverages reinforcement learning to balance exploration and exploitation, delivering personalized recommendations that maximize user conversion rates.
 
