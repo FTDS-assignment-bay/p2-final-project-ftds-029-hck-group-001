@@ -69,7 +69,7 @@ This repository contains the implementation and analysis of a **Contextual Bandi
 |--------------------|-------------------------------|
 | Programming        | Python 3.9+                   |
 | Data Processing    | pandas, numpy                 |
-| Machine Learning   | scikit-learn, PyMC3 (optional)|
+| Machine Learning   | scikit-learn, lightgbm        |
 | Workflow           | Apache Airflow                |
 | Database           | PostgreSQL                    |
 | Visualization      | matplotlib, Streamlit         |
