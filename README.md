@@ -1,7 +1,7 @@
 # 🎯 E-Quinox: Contextual Bandit Optimization for Real-Time Marketing Decisions
 
 <div align="center">
-  <img src="./images/logo%20.png" alt="Team logo" width="375">
+  <img src="./images/logo.png" alt="Team logo" width="375">
 </div>
 
 ## 📌 Overview
